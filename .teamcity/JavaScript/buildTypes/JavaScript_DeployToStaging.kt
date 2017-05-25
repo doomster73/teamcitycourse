@@ -12,18 +12,6 @@ object JavaScript_DeployToStaging : BuildType({
 
     }
 
-steps {
-        script {
-            name = "IIS Deploy"
-            id = "RUNNER_6"
-            scriptContent = """
-rmdir /S /Q \inetpub\wwwroot
-xcopy /S /I /Y app \inetpub\wwwroot\
-
-"""
-        }
-    }
-
     dependencies {
         dependency(JavaScript.buildTypes.JavaScript_02Chrome) {
             snapshot {
